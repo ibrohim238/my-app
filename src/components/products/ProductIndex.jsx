@@ -8,13 +8,23 @@ export default function ProductIndex() {
         sort: 'asc',
     });
 
+    let changeSelectSort = (e) => {
+        setSearchParams({
+            sort: e.target.value
+        });
+    };
+
     useEffect(() => {
         ProductRepository.getIndex(searchParams).then(setProducts);
-    }, []);
+    }, [searchParams]);
 
 
     return (
         <div>
+            <select value={searchParams.get('sort')} onChange={changeSelectSort}>
+                <option defaultChecked value="asc">Asc</option>
+                <option value="desc">Desc</option>
+            </select>
             <div>
                 {
                     products.map((product) => {

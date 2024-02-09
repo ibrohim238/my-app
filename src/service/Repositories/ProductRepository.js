@@ -4,7 +4,11 @@ import Product from "../model/Product";
 
 export default {
     async getIndex(queryParams) {
-        return await client.get('/products')
+        return await client.get('/products', {
+            params: {
+                'sort': queryParams.get('sort'),
+            }
+        })
             .then(res => {
                 return res.data.map(product => Product.fromData(product));
             })
