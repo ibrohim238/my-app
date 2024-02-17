@@ -15,7 +15,18 @@ export default {
             .catch(error => console.log(error));
     },
     async getShow(id) {
-        return await client.get(`/products/${id}`)
+        return await client.get('/products/' + id)
+            .then(res => {
+                return Product.fromData(res.data);
+            })
+            .catch(error => console.log(error));
+    },
+    async store(formData) {
+        return await client.post('/products/', formData, {
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }
+        })
             .then(res => {
                 return Product.fromData(res.data);
             })

@@ -4,12 +4,14 @@ export default class Product {
         title = '',
         image = '',
         price = '',
+        description = '',
         category = '',
     ) {
         this.id = id
         this.title = title
         this.image = image
         this.price = price
+        this.description = description
         this.category = category
     }
 
@@ -19,6 +21,7 @@ export default class Product {
             data.title,
             data.image,
             data.price,
+            data.description,
             data.category,
         );
     }

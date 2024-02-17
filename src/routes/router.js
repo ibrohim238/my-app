@@ -6,6 +6,7 @@ import ProductShow from "../components/products/ProductShow";
 import Home from "../components/home/Home";
 import NoPage from "../components/NoPage";
 import React from "react";
+import ProductCreate from "../components/products/ProductCreate";
 
 export default (
     <Router>
@@ -14,6 +15,7 @@ export default (
                 <Route index element={<App />} />
                 <Route path="products">
                     <Route index element={<ProductIndex/>}/>
+                    <Route path="create" element={<ProductCreate/>}/>
                     <Route path=":id" element={<ProductShow/>}/>
                 </Route>
                 <Route path="home" element={<Home/>} />
