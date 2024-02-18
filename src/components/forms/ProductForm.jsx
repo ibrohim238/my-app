@@ -1,0 +1,51 @@
+export default function ProductForm({ product, handleChange, handleFileChange, handleSubmit }) {
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                Title:
+                <input
+                    type="text"
+                    name="title"
+                    value={product.title}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                Price:
+                <input
+                    type="number"
+                    name="price"
+                    value={product.price}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                Description:
+                <input
+                    type="text"
+                    name="description"
+                    value={product.description}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                Category:
+                <input
+                    type="text"
+                    name="category"
+                    value={product.category}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                Image:
+                <input
+                    type="file"
+                    name="image"
+                    onChange={handleFileChange}
+                />
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    );
+}

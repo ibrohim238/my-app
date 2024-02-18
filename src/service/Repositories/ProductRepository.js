@@ -31,5 +31,16 @@ export default {
                 return Product.fromData(res.data);
             })
             .catch(error => console.log(error));
+    },
+    async update(productId, formData) {
+        return await client.put('/products/' + productId, formData, {
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }
+        })
+            .then(res => {
+                return Product.fromData(res.data);
+            })
+            .catch(error => console.log(error));
     }
 }
