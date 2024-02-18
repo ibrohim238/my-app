@@ -6,16 +6,18 @@ export default class Product {
         price = '',
         description = '',
         category = '',
+        raging: {},
     ) {
         this.id = id
         this.title = title
         this.image = image
         this.price = price
+        this.rating = raging
         this.description = description
         this.category = category
     }
 
-    static fromData (data) {
+    static fromData(data) {
         return new Product(
             data.id,
             data.title,
@@ -23,6 +25,7 @@ export default class Product {
             data.price,
             data.description,
             data.category,
+            data.rating
         );
     }
 }
